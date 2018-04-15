@@ -1,0 +1,27 @@
+<h1>管理者画面</h1>
+  <h2>掲載商品編集</h2>
+    <% if admin_signed_in? %>
+    <%= form_tag("/products/#{@product.id}", method: :patch) do %>
+     <h3>登録商品情報を編集して下さい。</h3>
+      <div class="product-box clearfix">
+       <ul class="product-info">
+
+        <input type="text" name="product_grade" value="<%= @product.product_grade %>">品種<br>
+        <input type="text" name="supplier" value="<%= @product.supplier %>">メーカー<br>
+        <input type="text" name="product_name" value="<%= @product.product_name %>">銘柄<br>
+        <input type="text" name="basis_weight" value="<%= @product.basis_weight %>">米坪<br>
+        <input type="text" name="width" value="<%= @product.width %>">幅<br>
+        <input type="text" name="length" value="<%= @product.length %>">流れ<br>
+        <input type="text" name="renryo" value="<%= @product.renryo %>">連量<br>
+        <input type="text" name="inventory" value="<%= @product.inventory %>">数量<br>
+        <input type="text" name="price" value="<%= @product.price %>">価格<br>
+        <input type="text" name="image" value="<%= @product.image %>">画像<br>
+
+        <textarea cols="50" name="text" rows="5"><%= @product.text %></textarea>
+        <input type="submit" value="登録">
+
+      </ul>
+    </div>
+    <% end %>
+ <% end %>
+

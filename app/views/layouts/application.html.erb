@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PaperSalesSite</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <header>
+
+    <div class="heading">
+      <h1 class="title">Paper Sales Site </h1>
+
+    </div>
+
+    <nav class="navber navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarEexample1">
+          <span class="sr-only">Toggle navigation</span>
+          </button>
+           <a class="navbar-brand">MENU一覧</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbarEexample">
+          <ul class="nav navbar-nav">
+
+          <% if user_signed_in? %>
+            <li class="active"><%= link_to "ログアウト",destroy_user_session_path, method: :delete %></li>
+            <li><a href="/users/<%= current_user.id %>">マイページ</a></li>
+            <li><%= link_to '一覧へ戻る', "/products/", method: :get%></li>
+
+          <% else %>
+            <li><%= link_to "ログイン",new_user_session_path, class: 'post' %></li>
+            <li><%= link_to "新規登録",new_user_registration_path, class: 'post' %></li>
+          <% end %>
+
+         <form class="navbar-form navbar-left" role="search">
+          <div class="form-group">
+           <input type="text" name="keyword" class="form-control" placeholder="商品名の一部を入力">
+          </div>
+           <button type="submit" formaction="/search" method="post" class="btn btn-default">検索</button>
+         </form>
+
+            <li id="RealtimeClockArea2"></li>
+          </ul>
+
+        </div>
+      </div>
+    </nav>
+
+
+
+  </header>
+
+  <div class="contents clearfix">
+    <div class="left-content">
+      <%= yield %>
+    </div>
+    <div class="right-content">
+    <%= render partial: "products/right" %>
+  </div>
+</div>
+
+<footer>
+  I am One with Infinite Missions
+  <p>COPY RIGHT(C) ALL RIGHTS RESERVED by ITCPP.</p>
+</footer>
+
+</body>
+</html>

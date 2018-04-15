@@ -1,0 +1,19 @@
+.product-box {
+  width: 720px;
+  margin: 0 10px;
+  border-top: double 4px black;
+
+}
+
+.product-info {
+  width: 450px;
+  /*border-top: double 4px black;*/
+  /*border-bottom:solid 1px black;*/
+
+}
+
+img {
+  margin: 10px 20px;
+}
+
+

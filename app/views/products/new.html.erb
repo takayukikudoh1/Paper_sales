@@ -1,0 +1,26 @@
+
+<h1>管理者画面</h1>
+<h2>新規登録商品</h2>
+  <% if admin_signed_in? %>
+  <%= form_tag('/products/', method: :post) do %>
+  <h3>登録商品情報を入力して下さい。</h3>
+    <div class="product-box clearfix">
+    <ul class="product-info">
+        <input placeholder="品種" type="text" name="product_grade"><br>
+        <input placeholder="メーカー" type="text" name="supplier"><br>
+        <input placeholder="銘柄" type="text" name="product_name"><br>
+        <input placeholder="米坪" type="text" name="basis_weight"><br>
+        <input placeholder="幅" type="text" name="width"><br>
+        <input placeholder="流れ" type="text" name="length"><br>
+        <input placeholder="連量" type="text" name="renryo"><br>
+        <input placeholder="数量" type="text" name="inventory"><br>
+        <input placeholder="価格" type="text" name="price"><br>
+        <input placeholder="画像" type="text" name="image"><br>
+
+        <textarea placeholder="商品説明" cols="50" name="text" rows="5"></textarea>
+        <input type="submit" value="登録">
+
+    </ul>
+  </div>
+  <% end %>
+  <% end %>

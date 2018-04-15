@@ -1,0 +1,27 @@
+<h1>管理者画面</h1>
+  <h2>掲載商品一覧</h2>
+  <% if admin_signed_in? %>
+    <div class="product-box clearfix">
+    <ul class="product-info">
+      <li>品種 / <%= @product.product_grade %></li>
+      <li>商品ID / <%= @product.id %></li>
+      <li>メーカー / <%= @product.supplier %></li>
+      <li>商品名 / <%= @product.product_name %></li>
+      <li>米坪 / <%= @product.basis_weight %></li>
+      <li>幅 / <%= @product.width %></li>
+      <li>流れ / <%= @product.length %></li>
+      <li>連量 / <%= @product.renryo %></li>
+      <li>在庫数 / <%= @product.inventory %></li>
+      <li>商品説明 / <%= simple_format(@product.text) %></li>
+      <li><%= link_to '一覧へ戻る', "/admins/", method: :get%></li>
+      <!-- <li><%= link_to '削除', "/admins/#{@product.id}", method: :delete %></li> -->
+      <li><%= link_to '編集', "/products/#{@product.id}/edit", method: :get%></li>
+
+    </ul>
+    <img src="http://www.kpps.jp/papermall/attachFile/ST0215-A1D-0000003565.JPG">
+    </div>
+  <% end %>
+
+
+商品削除は基本NG
+

@@ -1,0 +1,26 @@
+<h2><%= @name %>さんの注文履歴</h2>
+<% if user_signed_in? or admin_signed_in? %>
+  <% @orders.each do |order| %>
+    <div class="product-box clearfix">
+      <ul class="product-info">
+        <li>ご注文日時 / <%= order.created_at %></li>
+        <li>ご注文数量 / <a class="record"><%= order.count %>連</a></li>
+        <li>単価 / <a class="record">¥<%= order.product.price %>円/kg</a></li>
+        <li>ご注文金額 / <a class="record">¥<%= number_with_delimiter(order.count*order.product.renryo*order.product.price) %></a></li>
+        <li>品種 / <%= order.product.product_grade %></li>
+        <li>商品ID / <%= order.product.id %></li>
+        <li>メーカー / <%= order.product.supplier %></li>
+        <li>商品名 / <%= order.product.product_name %></li>
+        <li>米坪 / <%= order.product.basis_weight %></li>
+        <li>幅 / <%= order.product.width %></li>
+        <li>流れ / <%= order.product.length %></li>
+        <li>連量 / <%= order.product.renryo %></li>
+        <li>商品説明 / <%= simple_format(order.product.text) %></li>
+
+      </ul>
+      <img src="http://www.kpps.jp/papermall/attachFile/ST0215-A1D-0000003565.JPG">
+    </div>
+  <% end %>
+ <% end %>
+
+<%= paginate(@orders) %>

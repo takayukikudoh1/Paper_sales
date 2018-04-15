@@ -1,0 +1,28 @@
+  <% if user_signed_in? or admin_signed_in? %>
+<h2>掲載商品一覧</h2>
+
+    <% @products.each do |product| %>
+      <div class="product-box clearfix">
+        <ul class="product-info">
+          <li>品種 / <%= product.product_grade %></li>
+          <li>メーカー / <%= product.supplier %></li>
+          <li>商品名 / <%= product.product_name %></li>
+          <li>米坪 / <%= product.basis_weight %></li>
+          <li>幅 / <%= product.width %></li>
+          <li>流れ / <%= product.length %></li>
+          <a><%= link_to '詳細はこちら', "/products/#{product.id}",  method: :get %></a>
+       </ul>
+        <img src="http://www.kpps.jp/papermall/attachFile/ST0215-A1D-0000003565.JPG">
+      </div><br>
+    <% end %>
+<%= paginate(@products) %>
+
+  <% else %>
+   <h2 class="title">ようこそ『Paper Sales Site』へ</h2>
+
+   <h3 class="price">・当サイトは印刷用紙の特値販売に特化しております。</h3>
+   <h3 class="price">・同業他社様のご販売支援も可能です。</h3><br>
+
+   <h3>・新規の方はユーザー登録をお願い致します。</h3>
+   <h3>・ご登録済みユーザーの方はログインして下さい。</h3>
+  <% end %>
