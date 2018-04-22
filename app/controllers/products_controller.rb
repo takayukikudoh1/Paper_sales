@@ -28,7 +28,9 @@ class ProductsController < ApplicationController
   end
 
   def search
+
     @products = Product.where('product_name LIKE(?)', "%#{params[:keyword]}%").limit(20)
+
      # redirect_to controller: :products, action: :index
   end
 

@@ -12,13 +12,30 @@
   </style>
 </head>
 <body>
-  <h2><%= @order_id %> 様</h2>
+  <h2><%= @user.name %> 様</h2>
   <hr />
   <p>
-    この度は「メールテスト運営局」を利用頂きましてありがとうございます。
+    この度はご発注有難う御座います。<br>
+    以下内容にてご注文を承りました。<br>
+    ご手配完了次第納期回答させていただきます。
   </p>
   <p>
-    ユーザー名: <%= @order_id %><br />
+    ユーザー名: <%= @user.name %><br />
+    ご注文日時: <%= @order.created_at %><br>
+    品種: <%= @order.product.product_grade %><br>
+    商品ID: <%= @order.product.id %><br>
+    メーカー: <%= @order.product.supplier %><br>
+    商品名: <%= @order.product.product_name %><br>
+    米坪: <%= @order.product.basis_weight %>g/m2<br>
+    幅:  <%= @order.product.width %>mm<br>
+    流れ: <%= @order.product.length %>mm<br>
+    連量: <%= @order.product.renryo %>kg<br><br>
+    ご注文数量: <%= @order.count %>連<br>
+    単価: ¥<%= @order.product.price %>円/kg<br>
+    ご注文金額: ¥<%= number_with_delimiter(@order.count*@order.product.renryo*@order.product.price) %><br>
+    お届け先: <%= @order.where %><br>
+    TEL: <%= @order.tel %><br>
+    ご担当者様: <%= @order.whom %>様<br>
   </p>
   <hr />
 </body>

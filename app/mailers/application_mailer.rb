@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "管理者"
+  default bcc: "towakud0512@gmail.com"
   layout 'mailer'
 end

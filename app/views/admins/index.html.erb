@@ -7,9 +7,9 @@
           <li>品種 / <%= product.product_grade %></li>
           <li>メーカー / <%= product.supplier %></li>
           <li>商品名 / <%= product.product_name %></li>
-          <li>米坪 / <%= product.basis_weight %></li>
-          <li>幅 / <%= product.width %></li>
-          <li>流れ / <%= product.length %></li>
+          <li>米坪 / <%= product.basis_weight %>g/m2</li>
+          <li>幅 / <%= product.width %>mm</li>
+          <li>流れ / <%= product.length %>mm</li>
           <li><%= link_to '詳細', "/admins/#{product.id}", method: :get %></li>
           <li><%= link_to '編集', "/products/#{product.id}/edit", method: :get %></li>
         </ul>

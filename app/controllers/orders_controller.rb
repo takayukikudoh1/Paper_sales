@@ -1,18 +1,21 @@
 class OrdersController < ApplicationController
 
   def create
-    order = Order.new(product_params)
-    order.save
     product = Product.find(params[:product_id])
     product.inventory -= params[:count].to_i
-    product.save
 
-    # SampleMailer.send_when_create.deliver_now
+    if product.inventory < 0
+      redirect_to product_path(params[:product_id])
+    else
+      product.save
+      order = Order.create(product_params)
+      SampleMailer.send_when_create(current_user, order).deliver
+    end
   end
 
   private
   def product_params
-   params.permit(:product_id, :count).merge(user_id: current_user.id)
+   params.permit(:product_id, :count, :where, :whom, :tel).merge(user_id: current_user.id)
   end
 
 end

@@ -6,11 +6,11 @@
      <li>商品ID / <%= @product.id %></li>
      <li>メーカー / <%= @product.supplier %></li>
      <li>商品名 / <%= @product.product_name %></li>
-     <li>米坪 / <%= @product.basis_weight %></li>
-     <li>幅 / <%= @product.width %></li>
-     <li>流れ / <%= @product.length %></li>
-     <li>連量 / <%= @product.renryo %></li>
-     <li>在庫数 / <%= @product.inventory %></li>
+     <li>米坪 / <%= @product.basis_weight %>g/m2</li>
+     <li>幅 / <%= @product.width %>mm</li>
+     <li>流れ / <%= @product.length %>mm</li>
+     <li>連量 / <%= @product.renryo %>kg</li>
+     <li>在庫数 / <%= @product.inventory %>連</li>
      <li>商品説明 / <%= simple_format(@product.text) %></li>
    </ul>
     <img src="http://www.kpps.jp/papermall/attachFile/ST0215-A1D-0000003565.JPG">
@@ -21,8 +21,11 @@
      <div class="price">¥ <%= @product.price %> 円/kg</div>
 
   <%= form_tag('/orders/', method: :post) do %>
-    <input placeholder="数量" type="text" name="count">
-    <input type="hidden" name="product_id" value="<%= @product.id %>">
+    <input placeholder="数量" type="text" name="count"><br>
+    <textarea placeholder="納入先住所" type="text" cols="50" name="where"></textarea><br>
+    <input placeholder="ご担当者様" type="text" name="whom"><br>
+    <input placeholder="TEL" type="strig" name="tel"><br>
+    <input type="hidden" name="product_id" value="<%= @product.id %>"><br>
     <input type="submit" value="注文する">
   <% end %><br>
      <a><%= link_to '一覧へ戻る', "/products/", method: :get%></a>

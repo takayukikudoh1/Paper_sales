@@ -7,11 +7,12 @@
       <li>商品ID / <%= @product.id %></li>
       <li>メーカー / <%= @product.supplier %></li>
       <li>商品名 / <%= @product.product_name %></li>
-      <li>米坪 / <%= @product.basis_weight %></li>
-      <li>幅 / <%= @product.width %></li>
-      <li>流れ / <%= @product.length %></li>
-      <li>連量 / <%= @product.renryo %></li>
-      <li>在庫数 / <%= @product.inventory %></li>
+      <li>米坪 / <%= @product.basis_weight %>g/m2</li>
+      <li>幅 / <%= @product.width %>mm</li>
+      <li>流れ / <%= @product.length %>mm</li>
+      <li>連量 / <%= @product.renryo %>kg</li>
+      <li>在庫数 / <%= @product.inventory %>連</li>
+       <li>価格 / <%= @product.price %> 円/kg</li>
       <li>商品説明 / <%= simple_format(@product.text) %></li>
       <li><%= link_to '一覧へ戻る', "/admins/", method: :get%></li>
       <!-- <li><%= link_to '削除', "/admins/#{@product.id}", method: :delete %></li> -->
