@@ -10,5 +10,5 @@ require "csv"
 products_csv = CSV.readlines("db/products.csv")
 products_csv.shift
 products_csv.each do |row|
-  Products.create(product_grade: row[1], supplier: row[2], product_name: row[3], basis_weight: row[4], width: row[5], length: row[6], renryo: row[7], inventory: row[8], created_at: row[9], updated_at: row[10])
+  Product.create(product_grade: row[1], supplier: row[2], product_name: row[3], basis_weight: row[4], width: row[5], length: row[6], renryo: row[7], inventory: row[8], created_at: row[9], updated_at: row[10])
 end
