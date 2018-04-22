@@ -88,4 +88,5 @@ Rails.application.configure do
     :user_name => "towakud0512@gmail.com", #ご自身のgmailアドレス
     :password => "pp051050", #ご自身のgmailアドレスのパスワード
     :authentication => 'login'
+  }
 end
