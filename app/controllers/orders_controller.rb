@@ -1,5 +1,4 @@
 class OrdersController < ApplicationController
-
   def create
     product = Product.find(params[:product_id])
     product.inventory -= params[:count].to_i
